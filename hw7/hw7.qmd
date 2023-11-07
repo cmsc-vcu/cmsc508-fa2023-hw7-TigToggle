@@ -1,20 +1,23 @@
 ---
-title: Homework 7 - Creating a resume database
-author: (your name goes here!)
+title: Homework 7 - Creating a Resume Database
+author: Alexa "Tig" Harriss
 date: last-modified
 format:
     html:
-        theme: cosmo
+        theme: slate
         toc: true
         embed-resources: true
+        fontcolor: LightGoldenRodYellow
+        backgroundcolor: SlateGrey
+        linkcolor: Gold
         code-copy: true
+        mermaid:
+            theme: forest
 ---
 
 (include a brief description of what is in this document)
 
-(Please clean up any comments that I included.  This is a scaffold document.)
-
-GITHUB URL:  <your URL goes here!>
+GITHUB URL:  <https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle>
 
 ```{python}
 #| eval: true
