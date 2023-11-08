@@ -15,9 +15,6 @@ format:
             theme: forest
 ---
 
-This database represents a massive copmany group nd includes details bout ll the people in the company, including their certifications, skills and roles. It will create searching for spesific employeet information easier and allow anyone to query to find employees with particular skillsets in order to make it easier to form team groups that might function well together. 
-<br><br>
-Includes tables on skills, roles and certifications, and includes a table of desired skills to potentially make the hiring process easier. Each skill can be associated with many, one, or no employees currently working at the company, and includes the date the skill was or will be aquired or the day the certification was awarded or will be awarded.
 
 **GITHUB URL:**  <https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle>
 
@@ -97,7 +94,9 @@ except Exception as e:
 
 ## Overview and description
 
-(briefly describe the project and the database)
+This database represents a massive copmany group nd includes details about all the people in the company, including their certifications, skills and roles. It will create searching for spesific employeet information easier and allow anyone to query to find employees with particular skillsets in order to make it easier to form team groups that might function well together. 
+<br><br>
+Includes tables on skills, roles and certifications, and includes a table of desired skills to potentially make the hiring process easier. Each skill can be associated with many, one, or no employees currently working at the company, and includes the date the skill was or will be aquired or the day the certification was awarded or will be awarded.
 
 ## Crows-foot diagram
 
@@ -124,7 +123,7 @@ For the people, skills, and roles tables, provide a description of each table an
 
 ### People table
 
-The *people* table contains elements that describe ... 
+The *people* table contains elements that describe all the people stored within the database. It includes their names and useful information that my be handy for getting in contact with them. 
 
 Below is a list of data in the *people* table.
 
@@ -134,7 +133,8 @@ Below is a list of data in the *people* table.
 sql = f"""
 select * from people;
 """
-## Add code to list roles table here
+
+#Error Catching
 try:
     df = pd.read_sql(sql,cnx)
     df
@@ -147,28 +147,50 @@ df
 
 ### Skills table
 
-The *skills* table contains elements that describe ... 
+The *skills* table contains elements that describe skills, including a basic overview of them and how long it may take to learn them. Not all elements within the skill table are skills that employees at the company currently have. 
 
 Below is a list of data in the *skills* table.
 
 ```{python}
 #| echo: false
 #| eval: true
+sql = f"""
+select * from skills;
+"""
 
-## Add code to list roles table here
+#Error Catching
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
 ```
 
 ### Roles table
 
-The *roles* table contains elements that describe ... 
+The *roles* table contains elements that describe roles that people within the company can have. Includes a priority ranking thing that allows the roles to be sorted by priority. 
 
 Below is a list of data in the *roles* table.
 
 ```{python}
 #| echo: false
 #| eval: true
+sql = f"""
+select * from roles;
+"""
 
-## Add code to list roles table here
+#Error Catching
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
 ```
 
 
@@ -177,17 +199,16 @@ Below is a list of data in the *roles* table.
 Let's explore the database!
 
 # List skill names, tags, and descriptions ordered by name
-
-(here a sample query)
+The SQL below selects the skill names, tags, and descriptions, and alphabetically organizes them by skill name. 
 
 ```{python}
 sql = f"""
-select * from people
+select Skill_name, Skill_tag, Skill_description
+From skills
+Order By Skill_name;
 """
 ```
 
-
-(and here is a sample result from the query)
 
 ```{python}
 #| echo: false
@@ -205,30 +226,222 @@ df
 
 
 ### List people names and email addresses ordered by last_name
+This query lists peoples first name and email adress, and organizes them alphabetically by last_name
+```{python}
+sql = f"""
+select people_first_name, people_email
+From people
+Order By people_last_name;
+"""
+```
+
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 
 ### List skill names of Person 1
+This query lists the all skills held by Person 1 aka "Atticus". 
+```{python}
+sql = f"""
+select skill_name
+from peopleskills
+inner join skills on peopleskills.skills_id=skills.skills_id
+where people_id=1;
+"""
+```
+
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 
 ### List people names with Skill 6
+This lists the names of people who have Skill 6, otherwise known as "Juggling"
+```{python}
+sql = f"""
+select people_first_name
+from peopleskills
+inner join people on peopleskills.people_id=people.people_id
+where skills_id=6;
+"""
+```
 
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ### List people with a DEVELOPER role
+Lists the people with the developer role by their first name. 
 
+```{python}
+sql = f"""
+select people_first_name
+from peopleroles
+inner join people on peopleroles.people_id=people.people_id
+where role_id=2;
+"""
+```
+
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ### List names and email addresses of people without skills
+Lists the names and email addresses of people who have no skills.
+```{python}
+sql = f"""
+select people_first_name, people_email
+from people
+left join peopleskills on peopleskills.people_id=people.people_id
+where skills_id is null;
+"""
+```
 
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ### List names and tags of unused skills
+Lists the names and tags of unused skills, aka, skills that no currently employeed people posesses. NOTE, I added 9 skills instead of 8, so there are 3 unused skills instead of 2. 
+```{python}
+sql = f"""
+select skill_name, skill_tag
+from skills
+left join peopleskills on peopleskills.skills_id=skills.skills_id
+where people_id is null;
+"""
+```
 
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ### List people names and skill names with the BOSS role
+Lists people and their associated skills, but only if they have the boss role
+```{python}
+sql = f"""
+select people_first_name, skill_name
+from peopleskills
+inner join people on peopleskills.people_id=people.people_id
+inner join skills on peopleskills.skills_id=skills.skills_id
+inner join peopleroles on peopleskills.people_id=peopleroles.people_id
+inner join roles on peopleroles.role_id=roles.role_id
+where role_name ="Boss";
+"""
+```
 
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ### List ids and names of unused roles
+Lists the Names of roles that nobody employed has. <br>
+NOTE: The table is EMPTY because every role has at least 1 person assigned to it! 
+```{python}
+sql = f"""
+select role_name
+from peopleroles
+inner join roles on roles.role_id=peopleroles.role_id
+where people_id is null;
+"""
+```
 
+
+```{python}
+#| echo: false
+#| eval: true
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 ## Reflection
 
-(Write a paragraph expressing your thoughts, feelings, and insights about your experience with this assignment.  Pause and breath before writing - I'm trying to encourage critical thinking and self-awareness while allowing you to explore the connections between theory and practice. And yes, delete this paragraph.)
+This assignment was geuinely enjoyable, besides some of the more tedious parts, overall this was a good experience that ran smoothly for me. The most frustraiting thing for me was the time it took to write everything. There is a lot of very repetative things, both in the creation of the database itself and the things in the qmd file. I had a lot of fun creating the entries when I got to be a little goofy with them, it was fun being able to base them off of my favorite show "Infinity Train" and I enjoyed being able to make the skills things like "Juggling" or "Flying". It was geuinely cool when things actually worked, I could run the code and see the tables I created come to life. The most annoying thing was filling in the dates, if I have one reccomendation for changing anything about this project, it would be remove the 'date aquired' collumn in the peopleskills table and in the peopleroles table. Not only did those take up a lot of time to write out all the dates, but they don't become relevant in the qmd file, and are never listed out anywhere. 
+
+
 
