@@ -15,9 +15,11 @@ format:
             theme: forest
 ---
 
-(include a brief description of what is in this document)
+This database represents a massive copmany group nd includes details bout ll the people in the company, including their certifications, skills and roles. It will create searching for spesific employeet information easier and allow anyone to query to find employees with particular skillsets in order to make it easier to form team groups that might function well together. 
+<br><br>
+Includes tables on skills, roles and certifications, and includes a table of desired skills to potentially make the hiring process easier. Each skill can be associated with many, one, or no employees currently working at the company, and includes the date the skill was or will be aquired or the day the certification was awarded or will be awarded.
 
-GITHUB URL:  <https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle>
+**GITHUB URL:**  <https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle>
 
 ```{python}
 #| eval: true
@@ -35,7 +37,7 @@ from IPython.display import display, Markdown
 #| eval: true
 #| echo: false
 
-# modify config_map to reflect credentials needed by this program
+# credntials needed for the program
 config_map = {
     'user':'CMSC508_USER',
     'password':'CMSC508_PASSWORD',
