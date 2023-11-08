@@ -23,10 +23,10 @@ This project (hopefully) contains all the required information for deliverable 7
     [ ] : Table names have the EXACT listed names<br>
 [ ] : Primary keys are assigned <br>
 [ ] : Foreign keys are assigned with Cascades on delete<br>
-[ ] : Populates the skill table with AT LEAST 8 sklls<br>
-    [ ] : Skill tag fields are named "Skill 1", "Skill 2" etc. <br>
-[ ] : Populated the people table with 10 people<br>
-    [ ] : Last names are nmed "Person 1", "Person 2" etc. <br>
+[X] : Populates the skill table with AT LEAST 8 sklls<br>
+    [X] : Skill tag fields are named "Skill 1", "Skill 2" etc. <br>
+[X] : Populated the people table with 10 people<br>
+    [X] : Last names are nmed "Person 1", "Person 2" etc. <br>
 [ ] : PeopleSkill table is populated<br>
 [ ] : Roles table populated with at least 6 roles<br>
 [ ] : Peopleroles table is populated<br>

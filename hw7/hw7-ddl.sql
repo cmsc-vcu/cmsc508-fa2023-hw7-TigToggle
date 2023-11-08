@@ -18,6 +18,7 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS people;
+DROP TABLE IF EXISTS skills;
 # ... 
 SET FOREIGN_KEY_CHECKS=1;
 
@@ -28,12 +29,42 @@ SET FOREIGN_KEY_CHECKS=1;
 # time committment offers some sense of how much time was required (or will be required) to gain the skill.
 # You can assign the skill descriptions.  Please be creative!
 
+CREATE TABLE skills (
+    skills_id int,
+    skill_name varchar(256) NOT NULL,
+    skill_description varchar(4096) NOT NULL,
+    skill_tag varchar(256) NOT NULL,
+    skill_url varchar(4096),
+    skill_time_commitment varchar(256),
+    PRIMARY KEY (skills_id)
+);
+
 
 # Section 3
 # Populate skills
 # Populates the skills table with eight skills, their tag fields must exactly contain “Skill 1”, “Skill 2”, etc.
 # You can assign skill names.  Please be creative!
+# Atticus has skills 1,3,6;
+# Tulip has skills 3,4,5;
+# One-One has skills 1,5;
+# Jesse has no skills;
+# Lake has skills 3,6;
+# Amelia has skills 2,3,4;
+# Grace has skills 3,5,6;
+# Tuba has skills 1,3,5,6;
+# Ryan has skills 2,5,6;
+# MinGi has skills 1,4,5;
 
+INSERT INTO skills (skills_id,skill_name,skill_description,skill_tag,skill_url,skill_time_commitment) values
+(1,'Professionlism','Someone with this skill knows how to act in a professional environment, and may be good for setting deals or making sales','Skill 1','Professionalism.com','4 years'),
+(2,'Just Do It Attitude','Someone with this skill is likely to push ahead and start getting things done. This may come at the deteriment to planners.','Skill 1','LackOfForethought/com','N/A'),
+(3,'Teamwork Skills','Someone with this skill knows how to work well in a team, and will always put the group ahead of the individual','Skill 2','WhatsGonnaWork.com','2 Years'),
+(4,'Note-Taker','Someone with this skill will take notes and remeber things better. They will be more organized and better at making plans','Skill 1', 'Papermate.com','7 years'),
+(5,'Playing Music','Someone with this skill is naturally gifted in music, by means of instrument or voice, this person can make beautiful sounds.','Skill 4','MusicalNotes.com','3 Years'),
+(6,'Juggling','Someone with this skill has enough confidence and dexterity to juggle.','Skill 3','JugglingIsCool.com','8 years'),
+(7,'Flying', 'Someone with this skill knows how to fly, and can easilly soar through the sky with ease','Skill 3','IBelieveIcan.com','2 years'),
+(8,'Cartography','Someone with this skill is very good at making maps, and understands how to lay them out in  readble way','Skill 4','Podge.com','4 years'),
+(9,'Animation Expert','Someone with this skill understands animation and its practices well enough to create animation','Skill 3','NobodyKnowsThisSkillHahaha.com', '11 years');
 
 # Section 4
 # Create people( id,first_name, last_name, email, linkedin_url, headshot_url, discord_handle, brief_bio, date_joined)
@@ -42,17 +73,33 @@ SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE people (
     people_id int,
+    people_first_name varchar(256) NOT NULL,
     people_last_name varchar(256) NOT NULL,
+    people_email varchar(256),
+    people_linkin_url varchar(256),
+    people_headshot_url varchar(4096),
+    people_discord_handel varchar(256),
+    people_breif_bio varchar(4096),
+    people_date_joined date NOT NULL,
     PRIMARY KEY (people_id)
 );
 
 # Section 5
-# Populate people with six people.
+# Populate people with 10 people.
 # Their last names must exactly be “Person 1”, “Person 2”, etc.
 # Other fields are for you to assign.
 
-insert into people (people_id,people_last_name) values (1,'Person 1');
-
+insert into people (people_id,people_first_name,people_last_name,people_email,people_linkin_url,people_headshot_url,people_discord_handel,people_breif_bio,people_date_joined) values
+(1,'Atticus','Person 1','AttaboyCorg1@company.com','linkedin.com/denizens/AtticusCorgi','https://static.wikia.nocookie.net/animated-animals/images/e/e7/Atticus-Infinity-Train.jpg/revision/latest?cb=20201118214624','@KingAtticus','The king of the Corginian Corgis, and friend of Tulip', '2000-11-09'),
+(2,'Tulip','Person 2','RosieGameDev101@company.com','linkedin.com/people/TulipOlsen', 'https://tv-fanatic-res.cloudinary.com/iu/s--0LB_5s4i--/t_full/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:420/v1619752628/tulip-infinity-train.jpg','@TulipInTheTapes','Just some kid trying to get off this dumb train so I can get back to my life.','2010-03-30'),
+(3,'One-One','Person 3','Glad-One-Sad-One@company.com','linkedin.com/denizens/TrainConductorOneOne','https://static.wikia.nocookie.net/infinity-train/images/3/35/One-One_Render.png/revision/latest/scale-to-width/360?cb=20231022163412','@HeadsOfTheTrain','Former train conductor and current comedian duo, getting things back on the rails haha!','1456-01-01'),
+(4,'Jesse','Person 4','JesseCosayyy@company.com','linkedin.com/people/JesseCosay','https://pbs.twimg.com/media/EmIs7uFU0AE1KC8.jpg:large','@AlanDracula','Just a kid here to make friends and have fun! Swim team member, and pal to anyone who needs one.','2011-05-15'),
+(5,'Lake','Person 5','ChromeCasket@company.com','linkedin.com/denizens/people/Lake','https://static.wikia.nocookie.net/infinity-train/images/2/29/Lake_Blushing.jpg/revision/latest?cb=20200913034455','@AlanDracula2','Free from the mirror and here to make my own path, not a fan of trains.','2010-07-15'),
+(6,'Amelia','Person 6','AmeliaTurtle@company.com','linkedin.com/people/AmeliaHughes','https://tv-fanatic-res.cloudinary.com/iu/s--BafhVtre--/f_auto,q_auto/v1619794301/amelia-infinity-train','@Turtlemancy','British engineer working to undo the mistakes Ive made. Trying to recover.','1977-02-14'),
+(7,'Grace','Person 7','GraceMonroe@company.com','linkedin.com/people/GraceMonroe','https://assets.mycast.io/characters/grace-monroe-2506492-normal.jpg?1619966983','@DanceOfDeath','Former Dancer, Current Leader of an epic team. Currently working on amendments for the group.','2005-07-25'),
+(8,'Tuba','Person 8','InstrumentMom@company.com','linkedin.com/denizens/Tuba','https://static.cdn.turner.com/styles/img_square_768_x_768/s3/2020-08/IT_EP03_Screengrab_02.jpg?itok=UmMeglCO','@InstrumentMom','Your average instrument animal just trying their best.','2006-08-03'),
+(9,'Ryan','Person 9','RyanTheRockstar@company.com','linkedin.com/people/RyanAkagi', 'https://i.pinimg.com/736x/df/02/4e/df024e9e68be53df8737f3eecc554082.jpg','@RockstarRyan','Friend of Min-Gi and Kez, coolest train passenger around','1982-05-08'),
+(10,'Min-Gi','Person 10','MinGiPark@company.com','linkedin.com/people/MinGiPark','https://pbs.twimg.com/media/ExBbRBOXEAAh-aM.jpg','@MinGiPark','Friend of Ryan and Kez. Former Dumptys Employee.','1982-05-08');
 
 # Section 6
 # Create peopleskills( id, skills_id, people_id, date_acquired )
