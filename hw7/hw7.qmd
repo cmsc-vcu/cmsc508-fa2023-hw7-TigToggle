@@ -390,7 +390,7 @@ df
 ```
 
 ### List names and tags of unused skills
-Lists the names and tags of unused skills, aka, skills that no currently employeed people posesses. NOTE, I added 9 skills instead of 8, so there are 3 unused skills instead of 2. 
+Lists the names and tags of unused skills, aka, skills that no currently employeed people posesses. 
 ```{python}
 sql = f"""
 select skill_name, skill_tag
