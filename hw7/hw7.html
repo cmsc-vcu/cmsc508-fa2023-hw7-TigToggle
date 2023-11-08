@@ -3374,8 +3374,8 @@ z-index: 1000;
 
 </header>
 
-<p>(include a brief description of what is in this document)</p>
-<p>GITHUB URL: <a href="https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle" class="uri">https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle</a></p>
+<p>This database represents a massive copmany group nd includes details bout ll the people in the company, including their certifications, skills and roles. It will create searching for spesific employeet information easier and allow anyone to query to find employees with particular skillsets in order to make it easier to form team groups that might function well together. <br><br> Includes tables on skills, roles and certifications, and includes a table of desired skills to potentially make the hiring process easier. Each skill can be associated with many, one, or no employees currently working at the company, and includes the date the skill was or will be aquired or the day the certification was awarded or will be awarded.</p>
+<p><strong>GITHUB URL:</strong> <a href="https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle" class="uri">https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-TigToggle</a></p>
 <section id="overview-and-description" class="level2">
 <h2 class="anchored" data-anchor-id="overview-and-description">Overview and description</h2>
 <p>(briefly describe the project and the database)</p>
@@ -3421,14 +3421,136 @@ z-index: 1000;
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
 <th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handel</th>
+<th data-quarto-table-cell-role="th">people_breif_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>1</td>
+<td>Atticus</td>
 <td>Person 1</td>
+<td>AttaboyCorg1@company.com</td>
+<td>linkedin.com/denizens/AtticusCorgi</td>
+<td>https://static.wikia.nocookie.net/animated-ani...</td>
+<td>@KingAtticus</td>
+<td>The king of the Corginian Corgis, and friend o...</td>
+<td>2000-11-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Tulip</td>
+<td>Person 2</td>
+<td>RosieGameDev101@company.com</td>
+<td>linkedin.com/people/TulipOlsen</td>
+<td>https://tv-fanatic-res.cloudinary.com/iu/s--0L...</td>
+<td>@TulipInTheTapes</td>
+<td>Just some kid trying to get off this dumb trai...</td>
+<td>2010-03-30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>One-One</td>
+<td>Person 3</td>
+<td>Glad-One-Sad-One@company.com</td>
+<td>linkedin.com/denizens/TrainConductorOneOne</td>
+<td>https://static.wikia.nocookie.net/infinity-tra...</td>
+<td>@HeadsOfTheTrain</td>
+<td>Former train conductor and current comedian du...</td>
+<td>1456-01-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Jesse</td>
+<td>Person 4</td>
+<td>JesseCosayyy@company.com</td>
+<td>linkedin.com/people/JesseCosay</td>
+<td>https://pbs.twimg.com/media/EmIs7uFU0AE1KC8.jp...</td>
+<td>@AlanDracula</td>
+<td>Just a kid here to make friends and have fun! ...</td>
+<td>2011-05-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Lake</td>
+<td>Person 5</td>
+<td>ChromeCasket@company.com</td>
+<td>linkedin.com/denizens/people/Lake</td>
+<td>https://static.wikia.nocookie.net/infinity-tra...</td>
+<td>@AlanDracula2</td>
+<td>Free from the mirror and here to make my own p...</td>
+<td>2010-07-15</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Amelia</td>
+<td>Person 6</td>
+<td>AmeliaTurtle@company.com</td>
+<td>linkedin.com/people/AmeliaHughes</td>
+<td>https://tv-fanatic-res.cloudinary.com/iu/s--Ba...</td>
+<td>@Turtlemancy</td>
+<td>British engineer working to undo the mistakes ...</td>
+<td>1977-02-14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Grace</td>
+<td>Person 7</td>
+<td>GraceMonroe@company.com</td>
+<td>linkedin.com/people/GraceMonroe</td>
+<td>https://assets.mycast.io/characters/grace-monr...</td>
+<td>@DanceOfDeath</td>
+<td>Former Dancer, Current Leader of an epic team....</td>
+<td>2005-07-25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Tuba</td>
+<td>Person 8</td>
+<td>InstrumentMom@company.com</td>
+<td>linkedin.com/denizens/Tuba</td>
+<td>https://static.cdn.turner.com/styles/img_squar...</td>
+<td>@InstrumentMom</td>
+<td>Your average instrument animal just trying the...</td>
+<td>2006-08-03</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>9</td>
+<td>Ryan</td>
+<td>Person 9</td>
+<td>RyanTheRockstar@company.com</td>
+<td>linkedin.com/people/RyanAkagi</td>
+<td>https://i.pinimg.com/736x/df/02/4e/df024e9e68b...</td>
+<td>@RockstarRyan</td>
+<td>Friend of Min-Gi and Kez, coolest train passen...</td>
+<td>1982-05-08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>10</td>
+<td>Min-Gi</td>
+<td>Person 10</td>
+<td>MinGiPark@company.com</td>
+<td>linkedin.com/people/MinGiPark</td>
+<td>https://pbs.twimg.com/media/ExBbRBOXEAAh-aM.jpg</td>
+<td>@MinGiPark</td>
+<td>Friend of Ryan and Kez. Former Dumptys Employee.</td>
+<td>1982-05-08</td>
 </tr>
 </tbody>
 </table>
@@ -3471,14 +3593,136 @@ z-index: 1000;
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
 <th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handel</th>
+<th data-quarto-table-cell-role="th">people_breif_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>1</td>
+<td>Atticus</td>
 <td>Person 1</td>
+<td>AttaboyCorg1@company.com</td>
+<td>linkedin.com/denizens/AtticusCorgi</td>
+<td>https://static.wikia.nocookie.net/animated-ani...</td>
+<td>@KingAtticus</td>
+<td>The king of the Corginian Corgis, and friend o...</td>
+<td>2000-11-09</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Tulip</td>
+<td>Person 2</td>
+<td>RosieGameDev101@company.com</td>
+<td>linkedin.com/people/TulipOlsen</td>
+<td>https://tv-fanatic-res.cloudinary.com/iu/s--0L...</td>
+<td>@TulipInTheTapes</td>
+<td>Just some kid trying to get off this dumb trai...</td>
+<td>2010-03-30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>One-One</td>
+<td>Person 3</td>
+<td>Glad-One-Sad-One@company.com</td>
+<td>linkedin.com/denizens/TrainConductorOneOne</td>
+<td>https://static.wikia.nocookie.net/infinity-tra...</td>
+<td>@HeadsOfTheTrain</td>
+<td>Former train conductor and current comedian du...</td>
+<td>1456-01-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Jesse</td>
+<td>Person 4</td>
+<td>JesseCosayyy@company.com</td>
+<td>linkedin.com/people/JesseCosay</td>
+<td>https://pbs.twimg.com/media/EmIs7uFU0AE1KC8.jp...</td>
+<td>@AlanDracula</td>
+<td>Just a kid here to make friends and have fun! ...</td>
+<td>2011-05-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Lake</td>
+<td>Person 5</td>
+<td>ChromeCasket@company.com</td>
+<td>linkedin.com/denizens/people/Lake</td>
+<td>https://static.wikia.nocookie.net/infinity-tra...</td>
+<td>@AlanDracula2</td>
+<td>Free from the mirror and here to make my own p...</td>
+<td>2010-07-15</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Amelia</td>
+<td>Person 6</td>
+<td>AmeliaTurtle@company.com</td>
+<td>linkedin.com/people/AmeliaHughes</td>
+<td>https://tv-fanatic-res.cloudinary.com/iu/s--Ba...</td>
+<td>@Turtlemancy</td>
+<td>British engineer working to undo the mistakes ...</td>
+<td>1977-02-14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Grace</td>
+<td>Person 7</td>
+<td>GraceMonroe@company.com</td>
+<td>linkedin.com/people/GraceMonroe</td>
+<td>https://assets.mycast.io/characters/grace-monr...</td>
+<td>@DanceOfDeath</td>
+<td>Former Dancer, Current Leader of an epic team....</td>
+<td>2005-07-25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Tuba</td>
+<td>Person 8</td>
+<td>InstrumentMom@company.com</td>
+<td>linkedin.com/denizens/Tuba</td>
+<td>https://static.cdn.turner.com/styles/img_squar...</td>
+<td>@InstrumentMom</td>
+<td>Your average instrument animal just trying the...</td>
+<td>2006-08-03</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>9</td>
+<td>Ryan</td>
+<td>Person 9</td>
+<td>RyanTheRockstar@company.com</td>
+<td>linkedin.com/people/RyanAkagi</td>
+<td>https://i.pinimg.com/736x/df/02/4e/df024e9e68b...</td>
+<td>@RockstarRyan</td>
+<td>Friend of Min-Gi and Kez, coolest train passen...</td>
+<td>1982-05-08</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>10</td>
+<td>Min-Gi</td>
+<td>Person 10</td>
+<td>MinGiPark@company.com</td>
+<td>linkedin.com/people/MinGiPark</td>
+<td>https://pbs.twimg.com/media/ExBbRBOXEAAh-aM.jpg</td>
+<td>@MinGiPark</td>
+<td>Friend of Ryan and Kez. Former Dumptys Employee.</td>
+<td>1982-05-08</td>
 </tr>
 </tbody>
 </table>
