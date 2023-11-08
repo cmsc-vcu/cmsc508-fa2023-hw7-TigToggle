@@ -66,8 +66,7 @@ INSERT INTO skills (skills_id,skill_name,skill_description,skill_tag,skill_url,s
 (5,'Playing Music','Someone with this skill is naturally gifted in music, by means of instrument or voice, this person can make beautiful sounds.','Skill 4','MusicalNotes.com','3 Years'),
 (6,'Juggling','Someone with this skill has enough confidence and dexterity to juggle.','Skill 3','JugglingIsCool.com','8 years'),
 (7,'Flying', 'Someone with this skill knows how to fly, and can easilly soar through the sky with ease','Skill 3','IBelieveIcan.com','2 years'),
-(8,'Cartography','Someone with this skill is very good at making maps, and understands how to lay them out in  readble way','Skill 4','Podge.com','4 years'),
-(9,'Animation Expert','Someone with this skill understands animation and its practices well enough to create animation','Skill 3','NobodyKnowsThisSkillHahaha.com', '11 years');
+(8,'Cartography','Someone with this skill is very good at making maps, and understands how to lay them out in  readble way','Skill 4','Podge.com','4 years');
 
 # Section 4
 # Create people( id,first_name, last_name, email, linkedin_url, headshot_url, discord_handle, brief_bio, date_joined)
