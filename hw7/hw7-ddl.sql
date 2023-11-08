@@ -166,7 +166,7 @@ insert Into peopleskills (people_id,skills_id,date_skill_aquired) values
 Create Table roles(
     role_id int auto_increment,
     role_name varchar(256),
-    role_sort_priority varchar(256),
+    role_sort_priority int,
     PRIMARY KEY (role_id)
 );
 

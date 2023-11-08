@@ -9,10 +9,10 @@ This project (hopefully) contains all the required information for deliverable 7
 [X] : Update .env file to make sure it can connect to the right database <br>
 [X] : Create tables & populate with sample data<br>
 [X] : Construct test queries in a QMD file<br>
-[ ] : Get FLASK set up and running on a local host<br>
-[ ] : Get Quarto to query FLASK on local host<br>
-[ ] : Design and Doccument API<br>
-[ ] : Connect MySQL to FLASK to the QUARTO report<br>
+[?] : Get FLASK set up and running on a local host<br> 
+[?] : Get Quarto to query FLASK on local host<br>
+[?] : Design and Doccument API<br>
+[?] : Connect MySQL to FLASK to the QUARTO report<br>
 
 ----
 
@@ -20,9 +20,9 @@ This project (hopefully) contains all the required information for deliverable 7
 
 [X] : Drops all tables in the file<br>
 [X] : Creates all the tables listed in the "Homework 7" doccument on Canvas<br>
-    [ ] : Table names have the EXACT listed names<br>
+    [X] : Table names have the EXACT listed names<br>
 [X] : Primary keys are assigned <br>
-[ ] : Foreign keys are assigned with Cascades on delete<br>
+[X] : Foreign keys are assigned with Cascades on delete<br>
 [X] : Populates the skill table with AT LEAST 8 sklls<br>
     [X] : Skill tag fields are named "Skill 1", "Skill 2" etc. <br>
 [X] : Populated the people table with 10 people<br>
@@ -36,7 +36,7 @@ This project (hopefully) contains all the required information for deliverable 7
 # QUARTO DELIVERABLES
 
 [X] : Includes Overview of project & description of database<br>
-[ ] : Crows-foot diagram of the entities<br>
+[X] : Crows-foot diagram of the entities<br>
 [X] : Listing of three entity tables (people, roles & skills)<br>
 [X] : A section titled reports with detiled subsections<br>
     [X] : All skill names, tags & descriptions in alphabetical order by name<br>

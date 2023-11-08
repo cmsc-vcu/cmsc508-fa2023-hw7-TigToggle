@@ -100,26 +100,58 @@ Includes tables on skills, roles and certifications, and includes a table of des
 
 ## Crows-foot diagram
 
-(add a description of the diagram and what the reader is seeing.)
+A diagram consisting of all the tables that are part of the database. It is a useful visual for seeing how the database is connected and how it all looks. It includes all their variables. The variable names do not nessisarilly match up exactly to whats in the database. 
 
 ```{mermaid}
 %%| echo: false
 erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-    CUSTOMER{
+    People }|--|{ PeopleSkills : have
+    Skills }|--|{ PeopleSkills : describe
+    People }|--|{ PeopleRoles : have
+    Roles }|--|{ PeopleRoles : defined-by
+
+    People{
         int id
         string first_name
         string last_name
+        string email
+        string linkedin_URL
+        string headshot_URL
+        string breifbio
+        string date_joined
     }
-    DELIVERY-ADDRESS {
+
+    Skills{
         int id
+        string skill_name
+        string description
+        string tag
+        string URL 
+        string Time_commitment
+    }
+
+    PeopleSkills{
+        int id
+        int skills_id
+        int people_id
+        string Date_skill_aquired
+    }
+
+    Roles{
+        int id
+        string role_name
+        int sortPriority
+    }
+
+    PeopleRoles{
+        int id
+        int people_id
+        int role_id
+        string date_role_assigned
     }
 ```
 
 ## Examples of data in the database
-
-For the people, skills, and roles tables, provide a description of each table and it's contents. Then provide a listing of the entire table.
 
 ### People table
 
@@ -196,7 +228,7 @@ df
 
 ## Sample queries
 
-Let's explore the database!
+Let's explore the contents of the database!
 
 # List skill names, tags, and descriptions ordered by name
 The SQL below selects the skill names, tags, and descriptions, and alphabetically organizes them by skill name. 
@@ -443,5 +475,6 @@ df
 
 This assignment was geuinely enjoyable, besides some of the more tedious parts, overall this was a good experience that ran smoothly for me. The most frustraiting thing for me was the time it took to write everything. There is a lot of very repetative things, both in the creation of the database itself and the things in the qmd file. I had a lot of fun creating the entries when I got to be a little goofy with them, it was fun being able to base them off of my favorite show "Infinity Train" and I enjoyed being able to make the skills things like "Juggling" or "Flying". It was geuinely cool when things actually worked, I could run the code and see the tables I created come to life. The most annoying thing was filling in the dates, if I have one reccomendation for changing anything about this project, it would be remove the 'date aquired' collumn in the peopleskills table and in the peopleroles table. Not only did those take up a lot of time to write out all the dates, but they don't become relevant in the qmd file, and are never listed out anywhere. 
 
-
+<br><br>
+NOTE: I wrote the 'remove dates' suggestion BEFORE Thursdays [11/8/2023]'s lecture.
 

@@ -3381,21 +3381,55 @@ z-index: 1000;
 </section>
 <section id="crows-foot-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="crows-foot-diagram">Crows-foot diagram</h2>
-<p>(add a description of the diagram and what the reader is seeing.)</p>
+<p>A diagram consisting of all the tables that are part of the database. It is a useful visual for seeing how the database is connected and how it all looks. It includes all their variables. The variable names do not nessisarilly match up exactly to whats in the database.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-    CUSTOMER{
+    People }|--|{ PeopleSkills : have
+    Skills }|--|{ PeopleSkills : describe
+    People }|--|{ PeopleRoles : have
+    Roles }|--|{ PeopleRoles : defined-by
+
+    People{
         int id
         string first_name
         string last_name
+        string email
+        string linkedin_URL
+        string headshot_URL
+        string breifbio
+        string date_joined
     }
-    DELIVERY-ADDRESS {
+
+    Skills{
         int id
+        string skill_name
+        string description
+        string tag
+        string URL 
+        string Time_commitment
+    }
+
+    PeopleSkills{
+        int id
+        int skills_id
+        int people_id
+        string Date_skill_aquired
+    }
+
+    Roles{
+        int id
+        string role_name
+        int sortPriority
+    }
+
+    PeopleRoles{
+        int id
+        int people_id
+        int role_id
+        string date_role_assigned
     }
 </pre>
 </div>
@@ -3405,13 +3439,12 @@ z-index: 1000;
 </section>
 <section id="examples-of-data-in-the-database" class="level2">
 <h2 class="anchored" data-anchor-id="examples-of-data-in-the-database">Examples of data in the database</h2>
-<p>For the people, skills, and roles tables, provide a description of each table and it’s contents. Then provide a listing of the entire table.</p>
 <section id="people-table" class="level3">
 <h3 class="anchored" data-anchor-id="people-table">People table</h3>
 <p>The <em>people</em> table contains elements that describe all the people stored within the database. It includes their names and useful information that my be handy for getting in contact with them.</p>
 <p>Below is a list of data in the <em>people</em> table.</p>
 <div class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="105">
 <div>
 
 
@@ -3563,7 +3596,7 @@ z-index: 1000;
 <p>The <em>skills</em> table contains elements that describe skills, including a basic overview of them and how long it may take to learn them. Not all elements within the skill table are skills that employees at the company currently have.</p>
 <p>Below is a list of data in the <em>skills</em> table.</p>
 <div class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div class="cell-output cell-output-display" data-execution_count="106">
 <div>
 
 
@@ -3673,7 +3706,7 @@ z-index: 1000;
 <p>The <em>roles</em> table contains elements that describe roles that people within the company can have. Includes a priority ranking thing that allows the roles to be sorted by priority.</p>
 <p>Below is a list of data in the <em>roles</em> table.</p>
 <div class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="57">
+<div class="cell-output cell-output-display" data-execution_count="107">
 <div>
 
 
@@ -3733,7 +3766,7 @@ z-index: 1000;
 </section>
 <section id="sample-queries" class="level2">
 <h2 class="anchored" data-anchor-id="sample-queries">Sample queries</h2>
-<p>Let’s explore the database!</p>
+<p>Let’s explore the contents of the database!</p>
 </section>
 <section id="list-skill-names-tags-and-descriptions-ordered-by-name" class="level1">
 <h1>List skill names, tags, and descriptions ordered by name</h1>
@@ -3746,7 +3779,7 @@ z-index: 1000;
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div class="cell-output cell-output-display" data-execution_count="109">
 <div>
 
 
@@ -3831,7 +3864,7 @@ z-index: 1000;
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="11">
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="111">
 <div>
 
 
@@ -3913,7 +3946,7 @@ z-index: 1000;
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="113">
 <div>
 
 
@@ -3956,7 +3989,7 @@ z-index: 1000;
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="15">
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="115">
 <div>
 
 
@@ -4007,7 +4040,7 @@ z-index: 1000;
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="117">
 <div>
 
 
@@ -4058,7 +4091,7 @@ z-index: 1000;
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="19">
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div class="cell-output cell-output-display" data-execution_count="119">
 <div>
 
 
@@ -4095,7 +4128,7 @@ z-index: 1000;
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div class="cell-output cell-output-display" data-execution_count="121">
 <div>
 
 
@@ -4145,7 +4178,7 @@ z-index: 1000;
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="23">
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="123">
 <div>
 
 
@@ -4192,7 +4225,7 @@ z-index: 1000;
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="25">
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="125">
 <div>
 
 
@@ -4213,7 +4246,8 @@ z-index: 1000;
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>(Write a paragraph expressing your thoughts, feelings, and insights about your experience with this assignment. Pause and breath before writing - I’m trying to encourage critical thinking and self-awareness while allowing you to explore the connections between theory and practice. And yes, delete this paragraph.)</p>
+<p>This assignment was geuinely enjoyable, besides some of the more tedious parts, overall this was a good experience that ran smoothly for me. The most frustraiting thing for me was the time it took to write everything. There is a lot of very repetative things, both in the creation of the database itself and the things in the qmd file. I had a lot of fun creating the entries when I got to be a little goofy with them, it was fun being able to base them off of my favorite show “Infinity Train” and I enjoyed being able to make the skills things like “Juggling” or “Flying”. It was geuinely cool when things actually worked, I could run the code and see the tables I created come to life. The most annoying thing was filling in the dates, if I have one reccomendation for changing anything about this project, it would be remove the ‘date aquired’ collumn in the peopleskills table and in the peopleroles table. Not only did those take up a lot of time to write out all the dates, but they don’t become relevant in the qmd file, and are never listed out anywhere.</p>
+<p><br><br> NOTE: I wrote the ‘remove dates’ suggestion BEFORE Thursdays [11/8/2023]’s lecture.</p>
 </section>
 </section>
 
